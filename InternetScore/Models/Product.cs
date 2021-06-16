@@ -14,14 +14,17 @@ namespace InternetScore.Models
 
         [Display(Name = "Name Product")]
         [Required(ErrorMessage ="Enter Name Product")]
+        [StringLength(50,MinimumLength =3,ErrorMessage ="Count name>3")]
         public string Name { get; set; }
 
         [Display(Name = "Count Product")]
         [Required(ErrorMessage ="Count Product >0")]
+        [Range (0,100000,ErrorMessage ="Incorect Count")]
         public double Count { get; set; }
 
         [Display(Name = "Price Product")]
         [Required(ErrorMessage ="Price Product>0")]
+        [Range(0, 90000, ErrorMessage = "Incorect Price")]
         public decimal Price { get; set; }
         public int? CategoryId { get; set; }
         public Category Category { get; set; }
