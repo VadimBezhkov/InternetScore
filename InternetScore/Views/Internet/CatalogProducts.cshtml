@@ -1,0 +1,56 @@
+﻿@model InternetScore.Models.ProductsListViewModel
+@{
+    ViewBag.Title = "CatalogProducts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Catalog Products</h2>
+<p>
+    @Html.ActionLink("Add product", "Create")
+</p>
+
+<form method="get">
+    <div class="form-inline">
+        <label class="control-label">Categoryes:</label>
+        @Html.DropDownList("categoryes", Model.Categoryes as SelectList, htmlAttributes: new { @class = "form-control" })
+        <label class="control-label">Price:</label>
+        @Html.DropDownList("price", Model.Price as SelectList, htmlAttributes: new { @class = "form-control" })
+        <input type="submit" value="Filter" class="btn btn-default" />
+        </div>
+    </form>
+<input type="submit" value="Фильтр" class="btn btn-default" />
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Count</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Edit Product</th>
+        <th>Delete Product</th>
+
+
+    </tr>
+    @foreach (var item in Model.Products)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+
+            <td>@Html.DisplayFor(modelItem => item.Count)</td>
+
+            <td>@Html.DisplayFor(modelItem => item.Price)</td>
+
+            <td>@Html.DisplayFor(modelItem => item.Category.Name)</td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Catalog Categories", "CategoryDetails")
+</p>

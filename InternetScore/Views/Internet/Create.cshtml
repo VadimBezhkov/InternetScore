@@ -1,0 +1,46 @@
+﻿@model InternetScore.Models.Product
+@{
+    ViewBag.Title = "Create Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+</br>
+</br>
+</br>
+<h2>Add new product</h2>
+
+@using (Html.BeginForm("Create", "Internet", FormMethod.Post))
+{ 
+<fieldset>
+    <legend>Product</legend>
+
+        <p>
+            Name is Product<br />
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+                </div>
+        </p>
+
+    <p>
+        Count<br />
+        @Html.EditorFor(model => model.Count)
+        @Html.ValidationMessageFor(model => model.Count)
+    </p>
+    <p>
+        Price<br />
+        @Html.EditorFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price)
+    </p>
+    <p>
+        Category<br />
+        @Html.DropDownListFor(model => model.CategoryId,ViewBag.Categoryes as SelectList)
+    </p>
+    <p>
+        <input type="submit" value="Add product"/>
+        </p>
+</fieldset>
+<div>
+    @Html.ActionLink("All products","Index")
+    </div>
+
+}

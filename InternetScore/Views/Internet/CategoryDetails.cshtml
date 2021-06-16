@@ -1,0 +1,40 @@
+﻿@model IEnumerable<InternetScore.Models.Category>
+@{
+    ViewBag.Title = "CategoryDetails";
+}
+</br>
+</br>
+</br>
+<legend>
+
+    <h2>CategoresDetails</h2>
+</legend>
+    <p>
+        @Html.ActionLink("Add Categoryes", "CreateCategory")
+    </p>
+
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Edit Product</th>
+        <th>Delete Product</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+
+            <td>
+                @Html.ActionLink("Edit", "EditCategory", new { id = item.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteCategory", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+</br>
+<p>
+    @Html.ActionLink("All Product", "Index")
+</p>

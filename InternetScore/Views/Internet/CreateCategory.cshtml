@@ -1,0 +1,26 @@
+﻿@model  InternetScore.Models.Category
+@{
+    ViewBag.Title = "CreateCategory";
+}
+</br>
+</br>
+</br>
+<h2>CreateCategory</h2>
+
+@using (Html.BeginForm("CreateCategory", "Internet", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Category</legend>
+        <p>
+            Name Category<br />
+            @Html.TextBox("Name", "Enter Name")
+        </p>
+
+        <p>
+            <input type="submit" value="Add category" />
+        </p>
+    </fieldset>
+    <div>
+        @Html.ActionLink("All Category", "CategoryDetails")
+    </div>
+}

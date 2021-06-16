@@ -1,0 +1,23 @@
+﻿@model InternetScore.Models.Category
+@{
+    ViewBag.Title = "EditCategory";
+}
+
+<h2>EditCategory</h2>
+@using (Html.BeginForm("EditCategory", "Internet", FormMethod.Post))
+{
+<fieldset>
+    <legend>Category</legend>
+    @Html.HiddenFor(model => model.Id)
+    <p>
+        Name is Product<br />
+        @Html.EditorFor(model => model.Name)
+    </p>
+    <p>
+        <input type="submit" value="Edit" />
+    </p>
+</fieldset>
+    <div>
+        @Html.ActionLink("All Categoryes", "CategoryDetails")
+    </div>
+}

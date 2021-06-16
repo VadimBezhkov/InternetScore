@@ -1,0 +1,44 @@
+﻿@model IEnumerable<InternetScore.Models.Product>
+@{
+    ViewBag.Title = "Catalog products";
+}
+<legend>
+<h2>Catalog Products</h2>
+    </legend>
+<p>@Html.ActionLink("Add product", "Create")
+    </p>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Count</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Edit Product</th>
+        <th>Delete Product</th>
+       
+ 
+    </tr>
+@foreach (var item in Model)
+{
+<tr>
+    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+
+    <td>@Html.DisplayFor(modelItem => item.Count)</td>
+
+    <td>@Html.DisplayFor(modelItem => item.Price)</td>
+
+    <td>@Html.DisplayFor(modelItem => item.Category.Name)</td>
+
+    <td>
+        @Html.ActionLink("Edit","Edit", new {id=item.Id }) 
+        </td>
+    <td>
+        @Html.ActionLink("Delete", "Delete", new { id=item.Id})
+        </td>
+</tr>
+}
+</table>
+</br>
+<p>
+    @Html.ActionLink("Catalog Categories", "CategoryDetails")
+    </p>
